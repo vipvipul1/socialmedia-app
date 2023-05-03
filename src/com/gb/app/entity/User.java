@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -25,7 +28,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
-	private int id;
+	private Integer id;
 	
 	@Column(name="name")
 	private String name;
@@ -44,6 +47,15 @@ public class User {
 	
 	@OneToMany(mappedBy = "user")
 	private List<Feed> feeds;
+	
+	@ManyToMany
+	@JoinTable(name = "follows", 
+		joinColumns = @JoinColumn(name = "follower_user_id"), 
+		inverseJoinColumns = @JoinColumn(name = "following_user_id"))
+	private List<User> followingList;
+	
+	@ManyToMany(mappedBy = "followingList")
+	private List<User> followersList;
 
 	public User(String name, String phone, String email, String password, LocalDateTime createdDate) {
 		this.name = name;

@@ -5,6 +5,8 @@ import com.gb.app.entity.User;
 public class VoteService implements SocialMediaService {
 	
 	private static VoteService voteService;
+	
+	private VoteService() {}
 
 	public static VoteService getInstance() {
 		if (voteService == null)
@@ -13,7 +15,7 @@ public class VoteService implements SocialMediaService {
 	}
 
 	@Override
-	public String executeCmd(String[] cmdArgs, User authUser) {
+	public String executeCmd(String cmd, User authUser) {
 		return null;
 	}
 

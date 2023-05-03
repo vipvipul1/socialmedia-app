@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7163035c-440a-4ca4-90da-697a5340e0e0" name="Changes" comment="" />
+    <list default="true" id="7163035c-440a-4ca4-90da-697a5340e0e0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/com/gb/app/dao/SignupDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/com/gb/app/dao/SignupDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/gb/app/dao/SignupDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gb/app/dao/SignupDao.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2PCmttCxqV0lYmeb3AXwTNc5tyk" />
   <component name="ProjectViewState">
@@ -17,9 +24,9 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/OneDrive/Documents/JAVA/Java_EE/My_Projects_Eclipse/Spring/Scaler/socialmedia-app&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/OneDrive/Documents/JAVA/Java_EE/My_Projects_Eclipse/Spring/Scaler/socialmedia-app/lib&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.3505747&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -34,6 +41,9 @@
       <updated>1682969656251</updated>
       <workItem from="1682969657587" duration="60000" />
       <workItem from="1682969736802" duration="62000" />
+      <workItem from="1683061342045" duration="34000" />
+      <workItem from="1683061454310" duration="332000" />
+      <workItem from="1683061913293" duration="6000" />
     </task>
     <servers />
   </component>

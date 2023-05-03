@@ -8,6 +8,8 @@ import com.gb.app.entity.User;
 public class SignupService implements SocialMediaService {
 	
 	private static SignupService signupService;
+	
+	private SignupService() {}
 
 	public static SignupService getInstance() {
 		if (signupService == null)
@@ -16,16 +18,17 @@ public class SignupService implements SocialMediaService {
 	}
 
 	@Override
-	public String executeCmd(String[] cmdArgs, User authUser) {
+	public String executeCmd(String command, User authUser) {
+		String[] cmdArgs = command.split(" ");
 		String name = cmdArgs[1];
 		String phone = cmdArgs[2];
 		String email = cmdArgs[3];
 		String password = cmdArgs[4];
-		authUser = new User(name, phone, email, password, LocalDateTime.now());
-		Integer signupId = SignupDao.getInstance().signupUser(authUser);
-		if (signupId != null)
-			return String.valueOf(signupId);
-		return null;
+		User user = new User(name, phone, email, password, LocalDateTime.now());
+		SignupDao.getInstance().signupUser(user);
+		if (user.getId() == null)
+			return "Signup failed! Contact administrator";
+		return "User signed up successfully. User Id: " + user.getId();
 	}
 
 }

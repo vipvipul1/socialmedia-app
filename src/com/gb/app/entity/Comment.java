@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -48,11 +49,19 @@ public class Comment {
 	
 	@OneToMany(mappedBy = "comment")
 	private List<CommentVote> votes;
+	
+	@OneToMany
+	@JoinTable(name = "comment_mapping", 
+		joinColumns = @JoinColumn(name = "parent_comment_id"), 
+		inverseJoinColumns = @JoinColumn(name = "child_comment_id"))
+	List<Comment> childComments;
 
-	public Comment(String body, User user, Feed feed, LocalDateTime createdDate) {
+	public Comment(String body, User user, Feed feed, Integer level, LocalDateTime createdDate) {
+		super();
 		this.body = body;
 		this.user = user;
 		this.feed = feed;
+		this.level = level;
 		this.createdDate = createdDate;
 	}
 

@@ -4,6 +4,6 @@ import com.gb.app.entity.User;
 
 public interface SocialMediaService {
 	
-	public String executeCmd(String[] cmdArgs, User authUser);
+	public String executeCmd(String command, User authUser);
 
 }
