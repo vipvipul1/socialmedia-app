@@ -54,6 +54,7 @@ public class SocialMediaApp {
 				+ "5. Reply on Feed/Comment - (reply f/c [feedId/commentId] [message])\n"
 				+ "6. Upvote Feed/Comment - (upvote f/c [feedId/commentId])\n"
 				+ "7. Downvote Feed/Comment - (downvote f/c [feedId/commentId])\n"
-				+ "8. Show News Feed - (shownewsfeed)\n" + "9. Logout - (logout)");
+				+ "8. Show News Feed - (shownewsfeed)\n"
+				+ "9. Logout - (logout)");
 	}
 }

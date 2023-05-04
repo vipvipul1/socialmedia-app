@@ -25,7 +25,12 @@ public class FollowService implements SocialMediaService {
 		toUser.setId(toUserId);
 		
 		FollowDao.getInstance().followUser(fromUser, toUser);
-		return "Followed user " + toUserId + " successfully!";
+		String response = "";
+		if (toUser.getId() == null)
+			response = "Unfollowed";
+		else
+			response = "Followed";
+		return response + " user " + toUserId + " successfully!";
 	}
 
 }

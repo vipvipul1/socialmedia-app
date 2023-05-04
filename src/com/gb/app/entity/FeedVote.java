@@ -35,10 +35,17 @@ public class FeedVote {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@Column(name = "is_vote")
-	private Boolean isVote;
+	@Column(name = "is_upvote")
+	private Boolean isUpVote;
 
 	@Column(name = "created_date")
 	private LocalDateTime createdDate;
+
+	public FeedVote(Feed feed, User user, Boolean isUpVote, LocalDateTime createdDate) {
+		this.feed = feed;
+		this.user = user;
+		this.isUpVote = isUpVote;
+		this.createdDate = createdDate;
+	}
 
 }

@@ -1,7 +1,6 @@
 package com.gb.app.dao;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Session;
 
@@ -9,10 +8,11 @@ import com.gb.app.config.ConnectionUtil;
 import com.gb.app.entity.User;
 
 public class FollowDao {
-	
+
 	private static FollowDao followDao;
-	
-	private FollowDao() {}
+
+	private FollowDao() {
+	}
 
 	public static FollowDao getInstance() {
 		if (followDao == null)
@@ -24,12 +24,15 @@ public class FollowDao {
 		Session session = ConnectionUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
+
 			fromUser = session.get(User.class, fromUser.getId());
-			
-			List<User> toUserList = new ArrayList<>();
-			toUserList.add(toUser);
-			
-			fromUser.setFollowingList(toUserList);
+			Set<User> toUsersSet = fromUser.getFollowingsSet();
+			if (toUsersSet.contains(toUser)) {
+				toUsersSet.remove(toUser);
+				toUser.setId(null);
+			} else {
+				toUsersSet.add(toUser);
+			}
 
 			session.getTransaction().commit();
 			System.out.println("Hello");
@@ -39,5 +42,5 @@ public class FollowDao {
 			session.close();
 		}
 	}
-	
+
 }

@@ -17,6 +17,7 @@ public class NewsFeedService implements SocialMediaService {
 
 	@Override
 	public String executeCmd(String command, User authUser) {
+		
 		return null;
 	}
 

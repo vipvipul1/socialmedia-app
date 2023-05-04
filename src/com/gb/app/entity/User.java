@@ -2,6 +2,8 @@ package com.gb.app.entity;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -52,10 +54,10 @@ public class User {
 	@JoinTable(name = "follows", 
 		joinColumns = @JoinColumn(name = "follower_user_id"), 
 		inverseJoinColumns = @JoinColumn(name = "following_user_id"))
-	private List<User> followingList;
+	private Set<User> followingsSet;
 	
-	@ManyToMany(mappedBy = "followingList")
-	private List<User> followersList;
+	@ManyToMany(mappedBy = "followingsSet")
+	private Set<User> followersSet;
 
 	public User(String name, String phone, String email, String password, LocalDateTime createdDate) {
 		this.name = name;
@@ -63,5 +65,20 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.createdDate = createdDate;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null || !(obj instanceof User))
+			return false;
+		User user = (User) obj;
+		if (Objects.equals(this.getId(), user.getId()))
+			return true;
+		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(this.id);
 	}
 }

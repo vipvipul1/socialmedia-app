@@ -40,7 +40,7 @@ public class Feed {
 	private LocalDateTime createdDate;
 	
 	@OneToMany(mappedBy = "feed")
-	private List<Comment> comment;
+	private List<Comment> comments;
 	
 	@OneToMany(mappedBy = "feed")
 	private List<FeedVote> votes;

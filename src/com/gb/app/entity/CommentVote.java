@@ -35,10 +35,17 @@ public class CommentVote {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@Column(name = "is_vote")
-	private Boolean isVote;
+	@Column(name = "is_upvote")
+	private Boolean isUpVote;
 
 	@Column(name = "created_date")
 	private LocalDateTime createdDate;
+
+	public CommentVote(Comment comment, User user, Boolean isUpVote, LocalDateTime createdDate) {
+		this.comment = comment;
+		this.user = user;
+		this.isUpVote = isUpVote;
+		this.createdDate = createdDate;
+	}
 
 }

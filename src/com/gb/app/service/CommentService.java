@@ -11,6 +11,8 @@ import com.gb.app.util.Constants;
 public class CommentService implements SocialMediaService {
 	
 	private static CommentService commentService;
+	private Integer id;
+	private String msgBody;
 	
 	private CommentService() {}
 
@@ -22,6 +24,10 @@ public class CommentService implements SocialMediaService {
 
 	@Override
 	public String executeCmd(String command, User authUser) {
+		String cmdArgs = command.substring(Constants.REPLY.length() + 3);
+		id = Integer.parseInt(cmdArgs.substring(0, cmdArgs.indexOf(" ")));
+		msgBody = cmdArgs.substring(cmdArgs.indexOf(" ") + 1);
+		
 		if (command.charAt(Constants.REPLY.length() + 1) == 'f') {
 			return replyOnFeed(command, authUser);
 		} else {
@@ -30,10 +36,7 @@ public class CommentService implements SocialMediaService {
 	}
 	
 	private String replyOnFeed(String command, User authUser) {
-		String cmdArgs = command.substring(Constants.REPLY.length() + 3);
-		Integer feedId = Integer.parseInt(cmdArgs.substring(0, cmdArgs.indexOf(" ")));
-		String msgBody = cmdArgs.substring(cmdArgs.indexOf(" ") + 1);
-		
+		Integer feedId = id;
 		Feed feed = new Feed();
 		feed.setId(feedId);
 		
@@ -43,10 +46,7 @@ public class CommentService implements SocialMediaService {
 	}
 
 	private String replyOnComment(String command, User authUser) {
-		String cmdArgs = command.substring(Constants.REPLY.length() + 3);
-		Integer commentId = Integer.parseInt(cmdArgs.substring(0, cmdArgs.indexOf(" ")));
-		String msgBody = cmdArgs.substring(cmdArgs.indexOf(" ") + 1);
-		
+		Integer commentId = id;
 		Comment parentComment = new Comment();
 		parentComment.setId(commentId);
 		
